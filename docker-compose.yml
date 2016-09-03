@@ -1,0 +1,40 @@
+ghost-data-ioagentsmith:  
+ build: ./ghost-data-ioagentsmith
+ container_name: "ghost-data-ioagentsmith"
+mariadb:  
+ image: mariadb
+ container_name: "mariadb"
+ env_file: ./ghost-data-ioagentsmith/env_ioagentsmith
+ environment:
+  - TERM=xterm
+ ports:
+  - "127.0.0.1:3306:3306"
+ volumes_from:
+  - ghost-data-ioagentsmith
+ restart: always
+ghost-blog-ioagentsmith:  
+ image: ghost
+ container_name: "ghost-blog-ioagentsmith"
+ environment:
+  VIRTUAL_HOST: <redacted>
+  NODE_ENV: production
+ ports:
+  - "2369:2368"
+ volumes:
+  - ./ghost-data-ioagentsmith/config.js:/var/lib/ghost/config.js
+ volumes_from:
+  - ghost-data-ioagentsmith
+ env_file: ./ghost-data-ioagentsmith/env_ioagentsmith
+ links:
+  - mariadb:mysql
+ restart: always
+nginx:  
+ image: jwilder/nginx-proxy
+ container_name: "nginx"
+ ports: 
+  - "80:80"
+ volumes:
+  - /var/run/docker.sock:/tmp/docker.sock
+ environment:
+ - NODE_ENV=production
+ restart: always

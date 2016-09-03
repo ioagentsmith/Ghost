@@ -1,0 +1,14 @@
+# MariaDB configuration
+MYSQL_ROOT_PASSWORD=<redacted>
+MYSQL_USER=<redacted>
+MYSQL_PASSWORD=<redacted>
+MYSQL_DATABASE=<redacted>
+
+# Ghost configuration
+URL=<redacted>
+
+# Mail Settings
+MAIL_SERVICE=<redacted>
+MAIL_TRANSPORT=SMTP
+MAIL_USER=<redacted>
+MAIL_PASS=<redacted>
