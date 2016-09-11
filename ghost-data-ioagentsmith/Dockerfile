@@ -2,7 +2,6 @@
 FROM bennetimo/ghost-wait-mysql
 MAINTAINER Christoff Smith <christoff@ioagentsmith.co.za>
 
-
 # Wait for SQL to start
 ENV MYSQL_HOST=mysql
 ENV MYSQL_PORT=3306
