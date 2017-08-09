@@ -13,7 +13,7 @@ mariadb:
   - ghost-data-ioagentsmith
  restart: always
 ghost-blog-ioagentsmith:  
- image: ghost
+ image: ghost:0.11.11
  container_name: "ghost-blog-ioagentsmith"
  environment:
   VIRTUAL_HOST: <redacted>
