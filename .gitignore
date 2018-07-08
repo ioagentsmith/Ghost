@@ -5,8 +5,8 @@
 *.ipr
 
 ### Images ###
-#*.jpg
-#*.jpeg
-#*.png
-#*.bmp
-#*.gif
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.gif
